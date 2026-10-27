@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClickCase | Accesorios para celular</title>
+<style>
+:root{--ink:#10301f;--mut:#4d6b58;--bg:#d8ecc0;--g:#eaf6d6;--line:#b3d093;--lime:#b6f03c;--blue:#1f6b45;--surf:#f4fbe6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.47;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.top{background:var(--g);color:var(--mut);font-size:12px;text-align:center;padding:9px 12px}.top b{color:var(--ink);font-weight:600}
+header{position:sticky;top:0;z-index:30;background:#ffffffcc;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid #0000001a}
+.w{max-width:1100px;margin:auto;padding:0 20px}
+.hw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 20px;max-width:1100px;margin:auto}
+.logo{font-weight:600;font-size:21px;letter-spacing:-.5px;background:none;border:0;padding:0;margin-right:8px}
+.logo span{color:var(--mut);font-weight:300}
+.sr{flex:1;min-width:150px;padding:9px 16px;border:0;border-radius:99px;background:var(--g);font-size:15px}
+.ib{position:relative;background:none;border:0;border-radius:99px;padding:8px 12px;font-size:14px}.ib:hover{background:var(--g)}
+.cnt{position:absolute;top:-2px;right:-2px;background:var(--blue);color:#fff;border-radius:99px;font-size:11px;min-width:18px;height:18px;display:grid;place-items:center;font-weight:600}
+nav.cats{display:flex;gap:4px;overflow-x:auto;padding:0 20px 8px;max-width:1100px;margin:auto}
+nav.cats button,.chip{border:0;background:none;border-radius:99px;padding:6px 14px;white-space:nowrap;text-transform:capitalize;font-size:14px;color:var(--mut)}
+nav.cats button:hover{color:var(--ink)}
+.chip{background:var(--g);color:var(--ink)}.chip.on{background:var(--ink);color:#fff}
+.btn{background:var(--blue);color:#fff;border:0;border-radius:99px;padding:10px 20px;font-weight:500;font-size:15px}.btn:hover{filter:brightness(1.1)}
+.btn.l{background:var(--ink)}.btn.o{background:var(--g);color:var(--ink)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.hero{max-width:900px;margin:0 auto;padding:72px 20px 24px;text-align:center;display:block;color:var(--ink);background:none}
+.hero h1{font-size:clamp(38px,7vw,72px);line-height:1.05;margin:0 0 14px;letter-spacing:-.03em;font-weight:700}
+.hero p{color:var(--mut);font-size:clamp(17px,2.4vw,22px);max-width:34ch;margin:0 auto 26px}
+.hero .btn{padding:13px 28px;font-size:17px}
+.col{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;font-size:36px;margin:48px auto 0;max-width:640px}
+.col div{background:var(--g);border-radius:22px;padding:18px 0}
+section{padding:56px 0;scroll-margin-top:90px}
+h2.t{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;margin:0 0 22px;font-weight:700}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.cc{background:var(--g);border:0;border-radius:22px;padding:26px 8px;text-align:center;font-size:38px;text-transform:capitalize}
+.cc small{display:block;font-size:15px;font-weight:600;margin-top:4px}.cc:hover{background:#ebebef}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.bar select{padding:8px 12px;border-radius:99px;border:0;background:var(--g);margin-left:auto;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:var(--g);border-radius:24px;overflow:hidden;position:relative}
+.img{height:170px;display:grid;place-items:center;font-size:72px;cursor:pointer}
+.cb{padding:6px 20px 20px}.cb h3{margin:2px 0 4px;font-size:19px;font-weight:600}.cb p{margin:0 0 8px;color:var(--mut);font-size:14px}
+.cb small{color:var(--mut);text-transform:capitalize;font-size:13px}
+.pr{font-weight:600;font-size:17px}.pr s{font-size:13px;color:var(--mut);font-weight:400}
+.fv{position:absolute;top:12px;right:12px;background:#fff;border:0;border-radius:50%;width:34px;height:34px;font-size:17px}.fv.on{color:#e30000}
+.bd{position:absolute;top:14px;left:14px;background:var(--ink);color:#fff;border-radius:99px;padding:2px 10px;font-size:12px;font-weight:600}
+.st{display:inline-block;font-size:12px;font-weight:500;color:#1d7f35;margin:2px 0 12px}.st.low{color:#b25e00}.st.out{color:#c00}
+.row{display:flex;gap:8px}.row .btn{flex:1;padding:9px 6px;font-size:14px}
+.empty{text-align:center;padding:40px 12px;color:var(--mut)}.empty big{font-size:54px;display:block}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.box{background:var(--g);border-radius:22px;padding:24px}.box h3{margin-top:0}
+details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:600;cursor:pointer;font-size:17px}details p{color:var(--mut)}
+.soc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.th{border:0;border-radius:22px;height:180px;font-size:40px;color:#fff;font-weight:600;position:relative}
+.th span{position:absolute;bottom:12px;left:16px;font-size:14px;font-weight:500}
+footer{background:var(--g);color:var(--mut);margin-top:40px;padding:36px 0;font-size:13px}
+footer .w{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+footer b{color:var(--ink);display:block;margin-bottom:6px}
+footer button{display:block;background:none;border:0;color:var(--mut);padding:3px 0;text-align:left;font-size:13px}footer button:hover{color:var(--ink);text-decoration:underline}
+#bd{position:fixed;inset:0;background:#00000040;z-index:40;display:none}#bd.on{display:block}
+#dr{position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:#fff;z-index:50;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;box-shadow:-10px 0 40px #0002}
+#dr.open{transform:none}
+#dr header{position:static;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#fff}
+#dr h2{margin:0;font-size:22px}#db{flex:1;overflow:auto;padding:8px 20px 20px}
+.it{display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--g);padding:12px 0}
+.it .im{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;font-size:28px;flex:none}
+.it div.i{flex:1;font-size:14px}.qb{display:inline-flex;align-items:center;gap:8px;margin-top:4px}
+.qb button{width:26px;height:26px;border-radius:50%;border:0;background:var(--g)}
+.lk{background:none;border:0;color:var(--blue);padding:0;font-size:14px}
+.tt{display:flex;justify-content:space-between;padding:3px 0}.tt.g{font-weight:600;font-size:19px;border-top:1px solid var(--line);margin-top:6px;padding-top:10px}
+.ov{position:fixed;inset:0;background:#00000050;backdrop-filter:blur(6px);z-index:60;display:none;align-items:center;justify-content:center;padding:12px}.ov.on{display:flex}
+.md{background:#fff;border-radius:24px;width:min(680px,100%);max-height:92vh;overflow:auto;padding:28px;position:relative}
+.md h2{margin-top:0;letter-spacing:-.02em}
+.x{position:absolute;top:14px;right:14px;border:0;background:var(--g);border-radius:50%;width:32px;height:32px;font-size:18px}
+label{display:block;font-size:13px;font-weight:500;color:var(--mut);margin-bottom:12px}
+label input,label select,label textarea{display:block;width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:12px;margin-top:4px;color:var(--ink);background:#fff}
+label input:focus,label select:focus,label textarea:focus{outline:2px solid var(--blue);border-color:transparent}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.er{color:#d70015;font-weight:500;min-height:20px;margin:4px 0;font-size:14px}
+.note{background:var(--g);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--mut)}
+.steps{display:flex;gap:6px;margin:0 0 16px;padding-right:40px}.steps span{flex:1;text-align:center;padding:6px;border-radius:99px;background:var(--g);font-size:13px;color:var(--mut)}.steps span.on{background:var(--ink);color:#fff}
+.pay{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.pay label{flex:1;min-width:120px;border:1.5px solid var(--line);border-radius:14px;padding:14px;text-align:center;margin:0;cursor:pointer;color:var(--ink)}
+.pay input{display:none}.pay label:has(input:checked){border-color:var(--blue);background:#f0f7ff}
+.rv{border-top:1px solid var(--g);padding:10px 0;font-size:14px}.star{color:#e5a000}
+.vid{height:230px;border-radius:18px;background:#1d1d1f;display:grid;place-items:center;font-size:70px;overflow:hidden;position:relative;margin-bottom:12px}
+.vid i{position:absolute;left:0;bottom:0;height:4px;background:var(--lime);width:0;animation:pg 12s linear infinite paused}
+.vid.p i{animation-play-state:running}.vid.p em{animation:bob 1s infinite alternate}.vid em{font-style:normal}
+@keyframes pg{to{width:100%}}@keyframes bob{to{transform:scale(1.2) rotate(8deg)}}
+#ts{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:90;display:grid;gap:8px}
+.t{background:#1d1d1fee;color:#fff;padding:11px 20px;border-radius:99px;font-size:14px;backdrop-filter:blur(10px)}.t.bad{background:#d70015}
+@media(max-width:700px){.f2{grid-template-columns:1fr}.col{grid-template-columns:repeat(3,1fr)}.hero{padding-top:44px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media print{body>*:not(#ov){display:none!important}#ov{position:static;background:none;display:block!important}.md{max-height:none;overflow:visible}.x,.np{display:none!important}}
+.ph{font-size:24px;font-weight:600;letter-spacing:-.02em;color:#a1a1a6;text-transform:capitalize}.vid{color:#fff;font-size:28px;font-weight:600}.fv svg{display:block;margin:auto}.th{font-size:18px}.qa{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:13px;color:var(--mut)}.qa input,.qb input{width:64px;padding:7px 8px;border:1px solid var(--line);border-radius:10px;background:#fff;text-align:center;color:var(--ink)}.qb input{width:54px;padding:4px}.qa input.inv{border-color:#d70015;background:#fff1f1}.qa input:disabled{opacity:.4}
+/* ===== TEMA DE COLOR: verde bosque + lima ===== */
+body{background:linear-gradient(160deg,#cfe8ae 0%,#bfe6cf 55%,#c6d9f4 100%) fixed}
+.top{background:var(--lime);color:var(--ink)}
+body>header{background:#10301fee;border-bottom:0}
+body>header .logo,body>header .ib,nav.cats button{color:#eaf7d6}
+.logo span{color:var(--lime)}
+body>header .ib:hover{background:#ffffff26}
+.sr{background:#ffffff26;color:#fff}.sr::placeholder{color:#c9dfb8}
+.cnt{background:var(--lime);color:var(--ink)}
+nav.cats button:hover{color:var(--lime)}
+.btn{background:var(--ink);color:var(--lime)}.btn.l{background:var(--lime);color:var(--ink)}.btn.o{background:#d3e8b6;color:var(--ink)}
+.hero{max-width:1060px;margin:24px auto 0;border-radius:32px;padding:84px 24px;background:linear-gradient(135deg,#10301f,#1f6b45 60%,#35995f);color:#f2fbe4}
+.hero p{color:#cfe8c0}.hero .btn{background:var(--lime);color:var(--ink)}
+.card,.box,.md,#dr,#dr header{background:var(--surf)}
+.cc:nth-child(1){background:#ffd9c7}.cc:nth-child(2){background:#fff0b8}.cc:nth-child(3){background:#c9e7ff}.cc:nth-child(4){background:#e3d6ff}.cc:nth-child(5){background:#c4f0da}
+.chip{background:#dcedc4}.chip.on,.steps span.on{background:var(--ink);color:var(--lime)}
+.bar select{background:var(--surf)}.bd{background:var(--ink);color:var(--lime)}.fv{background:var(--surf)}.note{background:#e1f0c8}.top b{color:var(--ink)}
+label input,label select,label textarea,.qa input,.qb input{background:#fbfdf2}
+.pay label:has(input:checked){background:#e1f5bd;border-color:var(--ink)}
+.vid{background:var(--ink)}.t{background:#10301fee;color:#eaf7d6}
+footer{background:var(--ink);color:#b9d1a8}footer b{color:#fff}footer button{color:#b9d1a8}footer button:hover{color:var(--lime)}
+.lk{color:#1f6b45}.us{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.uc{display:inline-flex;align-items:center;gap:6px}.img,.it .im{overflow:hidden}
+footer a{display:block;color:#b9d1a8;padding:3px 0;text-decoration:none;font-size:13px}footer a:hover{color:var(--lime);text-decoration:underline}.vf{width:100%;border:0;border-radius:18px;background:#fff}</style>
+</head>
+<body>
+<div class="top">Envío gratis desde <b>$699 MXN</b> · Promociones de temporada · Atención al cliente: <b>lun a vie, 9 a 18 h</b></div>
+<header>
+  <div class="hw">
+    <button class="logo" data-a="go" data-v="inicio" aria-label="ClickCase, inicio">Click<span>Case</span></button>
+    <input id="q" class="sr" type="search" placeholder="Buscar productos…" aria-label="Buscar productos">
+    <button class="ib" data-a="acct"> <span id="un">Cuenta</span></button>
+    <button class="ib" data-a="drawer" data-v="fav" aria-label="Favoritos">Favoritos<span class="cnt" id="fc">0</span></button>
+    <button class="ib" data-a="drawer" data-v="cart" aria-label="Carrito"> Carrito<span class="cnt" id="cc2">0</span></button>
+  </div>
+  <nav class="cats" id="nav" aria-label="Categorías"></nav>
+</header>
+
+<main id="inicio">
+<div class="hero">
+  <div>
+    <h1>Tu celular, bien equipado.</h1>
+    <p>Fundas, cargadores, cables, audífonos y soportes. Envío gratis desde $699 MXN.</p>
+    <button class="btn l" data-a="go" data-v="catalogo">Comprar ahora</button>
+  </div>
+</div>
+
+<div class="w">
+<section><h2 class="t">Categorías</h2><div class="cg" id="catcards"></div></section>
+
+<section id="catalogo"><h2 class="t">Catálogo</h2>
+  <div class="bar"><span id="chips" style="display:contents"></span>
+    <select id="sort" aria-label="Ordenar por precio"><option value="">Ordenar: relevancia</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option></select></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="recomendados"><h2 class="t">Productos recomendados</h2><div class="grid" id="rec"></div></section>
+
+<section id="envios"><h2 class="t">Envíos y pagos</h2>
+  <div class="info">
+    <div class="box"><h3> Política de envío</h3><p>Pedidos menores a $699 MXN: envío fijo de <b>$49 MXN</b>.<br>Pedidos de $699 MXN o más: <b>envío gratis</b>.</p><p>Ejemplo: $500 + $49 = $549. Ejemplo: $750 + $0 = $750.</p></div>
+    <div class="box"><h3>Métodos de pago</h3><p>Tarjeta de crédito, tarjeta de débito y PayPal.</p></div>
+  </div>
+</section>
+
+<section id="faq"><h2 class="t">Preguntas frecuentes</h2>
+  <details><summary>¿Cuánto tarda y cuesta el envío?</summary><p>De 3 a 5 días hábiles. $49 MXN, gratis desde $699 MXN.</p></details>
+  <details><summary>¿Qué formas de pago aceptan?</summary><p>Aceptamos tarjeta de crédito, tarjeta de débito y PayPal.</p></details>
+  <details><summary>¿Cómo hago una devolución?</summary><p>Usa el botón “Solicitar devolución” de la sección Devoluciones.</p></details>
+  <details><summary>¿Los productos tienen garantía?</summary><p>Garantía de 90 días contra defectos de fabricación.</p></details>
+  <details><summary>¿Cómo doy seguimiento a mi pedido?</summary><p>Al confirmar recibes un número de pedido (CC-XXXXXXXX). Con él puedes consultar el estado de tu envío.</p></details>
+  </section>
+
+<section id="devoluciones"><h2 class="t">Política de devoluciones</h2>
+  <div class="info">
+    <div class="box"><h3>Plazo y condiciones</h3><p>15 días naturales desde la entrega. El producto debe estar sin uso y en su empaque.</p></div>
+    <div class="box"><h3>Proceso</h3><p>1) Solicita la devolución. 2) Recibe tu guía de envío. 3) Reembolso en 5 días hábiles.</p></div>
+    <div class="box"><h3>Excepciones</h3><p>Audífonos usados, protectores de pantalla instalados y productos dañados por mal uso.</p><button class="btn l" data-a="ret">Solicitar devolución</button></div>
+  </div>
+</section>
+
+<section id="redes"><h2 class="t">Redes sociales</h2>
+  <div class="soc">
+    <button class="th" style="background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)" data-a="vid" data-v="Instagram||Funda antigolpes en acción">Ver video<span>Instagram</span></button>
+    <button class="th" style="background:#1877f2" data-a="vid" data-v="Facebook||Prueba de audífonos inalámbricos">Ver video<span>Facebook</span></button>
+  </div>
+</section>
+</div>
+</main>
+
+<footer><div class="w">
+  <div><b>Click<span style="color:var(--lime)">Case</span></b>Accesorios para celular con envío a todo México.</div>
+  <div><b>Ayuda</b><button data-a="go" data-v="faq">Preguntas frecuentes</button><button data-a="go" data-v="envios">Envíos</button><button data-a="go" data-v="devoluciones">Devoluciones</button><button data-a="ret">Solicitar devolución</button></div>
+  <div><b>Pagos</b> Crédito ·  Débito · PayPal</div>
+  <div><b>Redes</b><div id="fsoc"></div></div>
+</div></footer>
+
+<div id="bd" data-a="closeD"></div>
+<aside id="dr" aria-label="Panel lateral"><header><h2 id="dt"></h2><button class="ib" data-a="closeD" aria-label="Cerrar">✕</button></header><div id="db"></div></aside>
+<div class="ov" id="ov"><div class="md" id="md" role="dialog" aria-modal="true"></div></div>
+<div id="ts" aria-live="polite"></div>
+
+<script>
+const VIDEOS={instagram:'https://www.instagram.com/reel/De7-AP0s9-p/?utm_source=ig_web_copy_link&psln=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',facebook:'https://www.facebook.com/61595511977782/videos/1543702907522259/'};
+const PERFILES={instagram:'https://www.instagram.com/cl1ckcase/?hl=es',facebook:'https://www.facebook.com/profile.php?id=61595511977782'};
+const ENVIAR_CODIGO_POR_CORREO=null;
+/* Código de verificación para "Restablecer contraseña". Es el mismo para todos los usuarios y NO se muestra en pantalla. Cámbialo aquí cuando quieras. */
+const CODIGO_RESTABLECER='2063';
+
+/* ===== UTILIDADES ===== */
+const $=s=>document.querySelector(s);
+const money=n=>'$'+n.toLocaleString('es-MX')+' MXN';
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const LS={g:(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},s:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const fd=f=>Object.fromEntries(new FormData(f));
+function T(m,bad){const d=document.createElement('div');d.className='t'+(bad?' bad':'');d.textContent=m;$('#ts').append(d);setTimeout(()=>d.remove(),2800)}
+
+/* ===== DATOS ===== */
+const CATS=['fundas','cargadores','cables','audífonos','soportes'];
+const CE={fundas:'',cargadores:'',cables:'','audífonos':'',soportes:''};
+const P=[
+{id:1,n:'Funda transparente',c:'fundas',p:99,s:20,e:'',d:'Ultradelgada, no amarillea.'},
+{id:2,n:'Funda antigolpes',c:'fundas',p:179,o:219,s:5,e:'',b:'-18%',d:'Esquinas reforzadas contra caídas.'},
+{id:3,n:'Cable USB-C 1 m',c:'cables',p:129,s:20,e:'',d:'Nylon trenzado, carga y datos.'},
+{id:4,n:'Cargador rápido 20W',c:'cargadores',p:249,s:3,e:'',b:'Top',d:'Carga rápida compacta.'},
+{id:5,n:'Audífonos inalámbricos',c:'audífonos',p:399,o:499,s:8,e:'',b:'-20%',d:'Bluetooth 5.3, 20 h de batería.'},
+{id:6,n:'Soporte de escritorio',c:'soportes',p:149,s:0,e:'',d:'Aluminio, ángulo ajustable.'},
+{id:7,n:'Protector de pantalla',c:'fundas',p:79,s:30,e:'',d:'Vidrio templado 9H.'},
+{id:8,n:'Power bank 10,000 mAh',c:'cargadores',p:449,s:6,e:'',b:'Nuevo',d:'Dos puertos, carga rápida.'},
+{id:9,n:'Adaptador USB-C',c:'cables',p:199,s:2,e:'',d:'USB-C a USB-A, datos y carga.'},
+{id:10,n:'Soporte para automóvil',c:'soportes',p:169,s:15,e:'',d:'Ventosa firme, giro 360°.'},
+{id:11,n:'Cable magnético',c:'cables',p:149,s:9,e:'',d:'Conector magnético intercambiable.'}
+];
+/* Fotos: pon aquí la ruta o el base64 de cada producto, por ejemplo {1:'fotos/funda.jpg'}. Si falta o no carga, se muestra el dibujo. */
+const IMG={
+  1:'https://azure-cdn.macstoreonline.com.mx/macstorecontent/sku/FUNNAT016_FZ.jpg', // Funda transparente
+  2:'https://elektra.vtexassets.com/arquivos/ids/33062735-800-auto?v=639260114366370000&width=800&height=auto&aspect=true',        // Funda antigolpes
+  3:'https://i5-mx.walmartimages.com/asr/c6f19c68-61a2-4fcd-8aaf-ada0cddd9603.cffd48634c97ee1009ab684a97bfc1f4.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',             // Cable USB-C 1 m
+  4:'https://m.media-amazon.com/images/I/6104celU3DL._AC_UF350,350_QL80_.jpg',         // Cargador rápido 20W
+  5:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc2UN_d_3_Z8crW6QlZnfYhd5OQpP_Ig7oManfFwSMgXDBgT1q1KTVMCI&s=10',  // Audífonos inalámbricos
+  6:'https://m.media-amazon.com/images/I/71s+uwEcoLL.jpg',      // Soporte de escritorio
+  7:'https://m.media-amazon.com/images/I/41IQAatk1PL.jpg_BO30,255,255,255_UF750,750_SR1910,1000,0,C_QL100_.jpg',      // Protector de pantalla
+  8:'https://informaticaarea.com/wp-content/uploads/2023/03/bateria-externa-power-bank-5000-mah-cool-leather-verde-300x300.jpg',              // Power bank 10,000 mAh
+  9:'https://ss637.liverpool.com.mx/xl/1123501051.jpg',         // Adaptador USB-C
+  10:'https://m.media-amazon.com/images/I/61a4h3vEyOL.jpg',           // Soporte para automóvil
+  11:'https://m.media-amazon.com/images/I/71MNS4PMT9L.jpg'         // Cable magnético
+};
+const D={"1": "<rect x=\"30\" y=\"10\" width=\"40\" height=\"80\" rx=\"9\" fill=\"none\" stroke=\"#10301f\" stroke-width=\"4\"/><circle cx=\"42\" cy=\"24\" r=\"6\" fill=\"#10301f\" opacity=\".5\"/>", "2": "<rect x=\"28\" y=\"8\" width=\"44\" height=\"84\" rx=\"11\" fill=\"#10301f\"/><rect x=\"34\" y=\"14\" width=\"32\" height=\"72\" rx=\"6\" fill=\"#b6f03c\"/>", "3": "<path d=\"M15 75c20 0 10-50 35-50s15 50 35 50\" fill=\"none\" stroke=\"#10301f\" stroke-width=\"5\" stroke-linecap=\"round\"/><rect x=\"8\" y=\"70\" width=\"14\" height=\"10\" rx=\"3\" fill=\"#10301f\"/><rect x=\"78\" y=\"70\" width=\"14\" height=\"10\" rx=\"3\" fill=\"#10301f\"/>", "4": "<rect x=\"30\" y=\"30\" width=\"40\" height=\"46\" rx=\"8\" fill=\"#10301f\"/><rect x=\"40\" y=\"14\" width=\"6\" height=\"16\" fill=\"#10301f\"/><rect x=\"54\" y=\"14\" width=\"6\" height=\"16\" fill=\"#10301f\"/><path d=\"M52 40l-8 14h8l-4 14 12-18h-8z\" fill=\"#b6f03c\"/>", "5": "<path d=\"M22 60V50a28 28 0 0156 0v10\" fill=\"none\" stroke=\"#10301f\" stroke-width=\"6\"/><rect x=\"14\" y=\"54\" width=\"16\" height=\"28\" rx=\"8\" fill=\"#10301f\"/><rect x=\"70\" y=\"54\" width=\"16\" height=\"28\" rx=\"8\" fill=\"#10301f\"/>", "6": "<rect x=\"25\" y=\"78\" width=\"50\" height=\"8\" rx=\"4\" fill=\"#10301f\"/><rect x=\"38\" y=\"24\" width=\"30\" height=\"48\" rx=\"6\" transform=\"rotate(12 53 48)\" fill=\"none\" stroke=\"#10301f\" stroke-width=\"4\"/>", "7": "<rect x=\"28\" y=\"10\" width=\"44\" height=\"80\" rx=\"8\" fill=\"none\" stroke=\"#10301f\" stroke-width=\"3\" stroke-dasharray=\"5 4\"/><path d=\"M38 72L60 24\" stroke=\"#b6f03c\" stroke-width=\"7\" stroke-linecap=\"round\"/>", "8": "<rect x=\"22\" y=\"28\" width=\"56\" height=\"44\" rx=\"9\" fill=\"#10301f\"/><rect x=\"30\" y=\"38\" width=\"8\" height=\"24\" fill=\"#b6f03c\"/><rect x=\"42\" y=\"38\" width=\"8\" height=\"24\" fill=\"#b6f03c\" opacity=\".7\"/><rect x=\"54\" y=\"38\" width=\"8\" height=\"24\" fill=\"#b6f03c\" opacity=\".4\"/>", "9": "<rect x=\"22\" y=\"40\" width=\"30\" height=\"20\" rx=\"5\" fill=\"#10301f\"/><rect x=\"52\" y=\"44\" width=\"26\" height=\"12\" rx=\"3\" fill=\"none\" stroke=\"#10301f\" stroke-width=\"4\"/><rect x=\"58\" y=\"49\" width=\"14\" height=\"2\" fill=\"#b6f03c\"/>", "10": "<rect x=\"36\" y=\"14\" width=\"28\" height=\"44\" rx=\"6\" fill=\"none\" stroke=\"#10301f\" stroke-width=\"4\"/><path d=\"M50 58v18\" stroke=\"#10301f\" stroke-width=\"5\"/><circle cx=\"50\" cy=\"82\" r=\"9\" fill=\"#10301f\"/>", "11": "<path d=\"M16 72c24 0 8-44 34-44s12 44 34 44\" fill=\"none\" stroke=\"#10301f\" stroke-width=\"5\"/><circle cx=\"16\" cy=\"72\" r=\"7\" fill=\"#b6f03c\" stroke=\"#10301f\" stroke-width=\"3\"/><circle cx=\"84\" cy=\"72\" r=\"7\" fill=\"#b6f03c\" stroke=\"#10301f\" stroke-width=\"3\"/>"};
+/* Imagen del producto: usa la foto de IMG (o p.img) y, si no hay o no carga, un dibujo */
+const art=(p,h=120)=>{const src=IMG[p.id]||p.img;return `<div style="position:relative;width:100%;height:100%;display:grid;place-items:center"><svg viewBox="0 0 100 100" height="${h}" role="img" aria-label="${esc(p.n)}">${D[p.id]||''}</svg>${src?`<img src="${src}" alt="${esc(p.n)}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`:''}</div>`};
+const QA=(id,s,n)=>`<div class="qa"><span>Cantidad</span><input type="number" min="1" inputmode="numeric" value="1" data-q="${id}" aria-label="Cantidad de ${n}" ${s>0?'':'disabled'}><small>Disponibles: ${s}</small></div>`;
+const gr=p=>`hsl(${p.id*47%360} 55% 82%)`;
+const find=i=>P.find(p=>p.id==i);
+const SEED=[{n:'Mariana G.',r:5,t:'Muy buena calidad para el precio.'},{n:'Luis R.',r:4,t:'Llegó rápido y funciona bien.'}];
+
+/* ===== ESTADO (guardado en LocalStorage) ===== */
+/* Sesión por pestaña: así puede haber dos usuarios a la vez (dos pestañas). Carritos y existencias se comparten en el navegador. */
+const SS={g:(k,d)=>{try{const v=JSON.parse(sessionStorage.getItem(k));return v==null?d:v}catch(e){return d}},s:(k,v)=>{try{sessionStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let curUser=SS.g('cc2_user',null);
+const TAB=SS.g('cc2_tab',null)||(()=>{const t=Math.random().toString(36).slice(2,8);SS.s('cc2_tab',t);return t})();
+const ukey=()=>curUser?curUser.email:'guest:'+TAB;
+const HOLD=30*60*1000; /* las piezas de un carrito quedan apartadas 30 min desde su última actividad */
+let carts=LS.g('cc3_carts',{}),favs=LS.g('cc2_fav',[]),revs=LS.g('cc2_rev',{});
+let cart={...((carts[ukey()]||{}).items||{})};
+function sync(){const c=LS.g('cc3_carts',null);if(c)carts=c;const st=LS.g('cc3_stock',null);if(st)stock=st}
+function reserved(i){let n=0;const now=Date.now();for(const k in carts){if(k==ukey())continue;const c=carts[k];if(c&&c.items&&now-c.t<HOLD)n+=c.items[i]||0}return n}
+const avail=i=>Math.max(0,stock[i]-reserved(i));
+let stock=LS.g('cc3_stock',null)||Object.fromEntries(P.map(p=>[p.id,p.s]));
+let filt={cat:'todos',q:'',sort:''},dOpen=null,co={on:false,step:1,d:{},pay:'credit'},amode='login';
+let pendingCk=false;
+function fixCart(){for(const i in cart){const a=avail(i);if(!find(i)||a<=0)delete cart[i];else if(cart[i]>a)cart[i]=a}}
+/* Cambiar de usuario: el carrito del anterior se guarda a su nombre y se carga el del nuevo. Solo al iniciar sesión para pagar se conserva el carrito de invitado. */
+function switchUser(u,merge){sync();const old=ukey(),oldCart=cart,wasGuest=old.startsWith('guest:');
+ if(wasGuest||!Object.keys(cart).length)delete carts[old];else carts[old]={items:cart,t:Date.now()};
+ curUser=u;SS.s('cc2_user',u);amode='login';cart={...(u?((carts[u.email]||{}).items||{}):{})};
+ if(merge&&wasGuest)for(const i in oldCart)cart[i]=(cart[i]||0)+oldCart[i];
+ fixCart();sv();setUser();R();closeD()}
+fixCart();
+const sv=()=>{const c=LS.g('cc3_carts',null);if(c)carts=c;const k=ukey(),now=Date.now();
+ if(Object.keys(cart).length)carts[k]={items:cart,t:now};else delete carts[k];
+ for(const x in carts)if(x.startsWith('guest:')&&now-carts[x].t>HOLD)delete carts[x];
+ LS.s('cc3_carts',carts);LS.s('cc2_fav',favs)};
+const revOf=id=>revs[id]||SEED;
+const avg=id=>{const r=revOf(id);return(r.reduce((a,b)=>a+b.r,0)/r.length).toFixed(1)};
+const stars=n=>'★'.repeat(n)+'☆'.repeat(5-n);
+
+/* ===== STOCK ===== */
+function lab(s){return s<=0?['Agotado','out']:s<=3?['Últimas '+s+' piezas','low']:s<=8?['Pocas unidades','low']:['Disponible','']}
+
+/* ===== RENDER: catálogo ===== */
+function card(p){const s=avail(p.id),f=favs.includes(p.id),[l,c]=lab(s);
+return `<article class="card"><button class="fv ${f?'on':''}" data-a="fav" data-v="${p.id}" aria-label="Favorito">${HEART(f)}</button>${p.b?`<span class="bd">${p.b}</span>`:''}
+<div class="img" style="background:${gr(p)}" data-a="det" data-v="${p.id}">${art(p)}</div>
+<div class="cb"><small>${p.c}</small><h3>${p.n}</h3><p>${p.d}</p>
+<div class="pr">${money(p.p)} ${p.o?`<s>${money(p.o)}</s>`:''}</div><span class="st ${c}">${l}</span>
+${QA(p.id,s,p.n)}<div class="row"><button class="btn l" data-a="add" data-v="${p.id}" ${s?'':'disabled'}>Agregar</button><button class="btn o" data-a="det" data-v="${p.id}">Detalles</button></div></div></article>`}
+function catalog(){
+ let l=P.filter(p=>(filt.cat=='todos'||p.c==filt.cat)&&p.n.toLowerCase().includes(filt.q.toLowerCase()));
+ if(filt.sort)l.sort((a,b)=>filt.sort=='asc'?a.p-b.p:b.p-a.p);
+ $('#grid').innerHTML=l.length?l.map(card).join(''):'<div class="empty"><big></big>Sin resultados. Prueba otra búsqueda o categoría.</div>';
+ $('#chips').innerHTML=['todos',...CATS].map(c=>`<button class="chip ${filt.cat==c?'on':''}" data-a="cat" data-v="${c}">${c}</button>`).join('');
+}
+function rec(){$('#rec').innerHTML=P.filter(p=>p.b||p.id==8).slice(0,4).map(card).join('')}
+function counts(){$('#cc2').textContent=Object.values(cart).reduce((a,b)=>a+b,0);$('#fc').textContent=favs.length}
+function R(){catalog();rec();counts();if(dOpen)drawer()}
+
+/* ===== CARRITO ===== */
+function totals(){const sub=Object.entries(cart).reduce((a,[i,q])=>a+find(i).p*q,0);const sh=(sub==0||sub>=699)?0:49;return{sub,sh,t:sub+sh}}
+function add(i,n=1){sync();n=Number(n);const a=avail(i);
+ if(a<=0){T('Producto agotado',1);R();return false}
+ if(!Number.isInteger(n)||n<1){T('Escribe una cantidad válida (mínimo 1).',1);return false}
+ const ya=cart[i]||0;
+ if(ya+n>a){T('Solo hay '+a+' piezas disponibles'+(ya?' (ya tienes '+ya+' en tu carrito)':''),1);return false}
+ cart[i]=ya+n;sv();R();T(n+' × '+find(i).n+' agregado al carrito');return true}
+function setQty(i,v){sync();const n=Number(v),a=avail(i);
+ if(String(v).trim()===''||!Number.isInteger(n)||n<0){T('Escribe una cantidad válida (mínimo 1).',1)}
+ else if(n==0)return rm(i);
+ else if(n>a){T('Solo hay '+a+' piezas disponibles',1);if(a)cart[i]=a;else delete cart[i];sv()}
+ else{cart[i]=n;sv()}
+ R();if(co.on&&co.step==1)ck()}
+function qty(v){sync();const[i,d]=v.split(':').map(Number),n=(cart[i]||0)+d,a=avail(i);if(n<1)return rm(i);if(n>a)return T('Solo hay '+a+' piezas disponibles',1);cart[i]=n;sv();R();if(co.on&&co.step==1)ck()}
+function rm(i){delete cart[i];sv();R();if(co.on){Object.keys(cart).length?ck():closeM()}}
+function totH(){const t=totals();return `<div class="tt"><span>Subtotal</span><span>${money(t.sub)}</span></div><div class="tt"><span>Envío</span><span>${t.sh?money(t.sh):'Gratis'}</span></div><div class="tt g"><span>Total</span><span>${money(t.t)}</span></div>
+<p style="font-size:13px;color:var(--mut)">${t.sub>=699?' Tienes envío gratis.':'Te faltan '+money(699-t.sub)+' para envío gratis ($49 si no llegas).'}</p>`}
+function lineH(i,ed){const p=find(i),q=cart[i];return `<div class="it"><div class="im" style="background:${gr(p)}">${art(p,40)}</div><div class="i"><b>${p.n}</b><br>${money(p.p)} · subtotal ${money(p.p*q)}<br>
+${ed?`<span class="qb"><button data-a="qty" data-v="${i}:-1" aria-label="Menos">−</button><input type="number" min="1" max="${avail(i)}" value="${q}" data-cq="${i}" aria-label="Cantidad de ${p.n}"><button data-a="qty" data-v="${i}:1" aria-label="Más">+</button></span> <small>(máx. ${avail(i)})</small> <button class="lk" data-a="rm" data-v="${i}">Eliminar</button>`:'Cant.: '+q}</div></div>`}
+function cartH(){const k=Object.keys(cart);if(!k.length)return '<div class="empty"><big></big><b>Tu carrito está vacío</b><p>Agrega accesorios para empezar.</p><button class="btn l" data-a="closeGo">Ver catálogo</button></div>';
+return k.map(i=>lineH(i,1)).join('')+totH()+'<button class="btn l" style="width:100%" data-a="ck">Ir a pagar</button>'}
+function favH(){if(!favs.length)return '<div class="empty"><b>Aún no tienes favoritos</b><p>Toca el corazón en un producto.</p></div>';
+return favs.map(i=>{const p=find(i);return `<div class="it"><div class="im" style="background:${gr(p)}">${art(p,40)}</div><div class="i"><b>${p.n}</b><br>${money(p.p)}<br><button class="btn l" style="padding:4px 10px" data-a="add" data-v="${i}" ${avail(i)?'':'disabled'}>Al carrito</button> <button class="lk" data-a="fav" data-v="${i}">Quitar</button></div></div>`}).join('')}
+function drawer(m){if(m)dOpen=m;$('#dr').classList.add('open');$('#bd').classList.add('on');$('#dt').textContent=dOpen=='cart'?'Tu carrito':'Favoritos';$('#db').innerHTML=dOpen=='cart'?cartH():favH()}
+function closeD(){dOpen=null;$('#dr').classList.remove('open');$('#bd').classList.remove('on')}
+
+const HEART=f=>`<svg width="18" height="18" viewBox="0 0 24 24" fill="${f?'currentColor':'none'}" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.3 5.3 0 0112 6a5.3 5.3 0 019.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>`;
+/* ===== FAVORITOS ===== */
+function fav(i){i=Number(i);const k=favs.indexOf(i);k<0?(favs.push(i),T(' Guardado en favoritos')):(favs.splice(k,1),T('Quitado de favoritos'));sv();R()}
+
+/* ===== MODALES ===== */
+function M(h){$('#md').innerHTML='<button class="x" data-a="close" aria-label="Cerrar">×</button>'+h;$('#ov').classList.add('on')}
+function closeM(){$('#ov').classList.remove('on');co.on=false;pendingCk=false}
+function det(i){const p=find(i),s=avail(i),[l,c]=lab(s),r=revOf(i);
+M(`<div class="img" style="background:${gr(p)};border-radius:14px;height:160px;cursor:default">${art(p,130)}</div><h2 style="margin-top:12px">${p.n}</h2>
+<p>${p.d}</p><div class="pr">${money(p.p)} ${p.o?`<s>${money(p.o)}</s>`:''}</div>
+<span class="st ${c}">${l}</span> <span class="star">${stars(Math.round(avg(i)))}</span> ${avg(i)} (${r.length})
+${QA(i,s,p.n)}<div class="row" style="margin:10px 0"><button class="btn l" data-a="add" data-v="${i}" ${s?'':'disabled'}>Agregar al carrito</button><button class="btn o" data-a="fav" data-v="${i}" data-m="${i}">Favorito</button></div>
+<p><b>También te puede gustar:</b> ${P.filter(x=>x.c==p.c&&x.id!=i||x.b&&x.id!=i).slice(0,3).map(x=>`<button class="chip" data-a="det" data-v="${x.id}">${x.n}</button>`).join(' ')}</p>
+<h3>Reseñas</h3>
+${r.map(x=>`<div class="rv"><span class="star">${stars(x.r)}</span> <b>${esc(x.n)}</b><br>${esc(x.t)}</div>`).join('')}
+<h3>Escribe una reseña</h3><form data-f="rev" novalidate><input type="hidden" name="id" value="${i}">
+<div class="f2"><label>Tu nombre<input name="n"></label><label>Calificación<select name="r"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label></div>
+<label>Comentario<textarea name="t" rows="2"></textarea></label><p class="er"></p><button class="btn">Publicar reseña</button></form>`)}
+
+/* ===== VIDEO INCRUSTADO: convierte el enlace normal en uno que se reproduce dentro de la página ===== */
+function embed(net,url){
+ if(/\.(mp4|webm|ogg)(\?|$)/i.test(url))return `<video src="${esc(url)}" controls playsinline style="width:100%;border-radius:18px;max-height:70vh;background:#000"></video>`;
+ let src='',h=480,m;
+ if(net=='instagram'&&(m=url.match(/instagram\.com\/(p|reel|tv)\/([\w-]+)/i))){src=`https://www.instagram.com/${m[1].toLowerCase()}/${m[2]}/embed`;h=620}
+ else if(net=='facebook'&&/facebook\.com|fb\.watch/i.test(url)){src='https://www.facebook.com/plugins/video.php?show_text=false&href='+encodeURIComponent(url)}
+ return src?`<iframe class="vf" src="${src}" height="${h}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy" title="Video de ${net}"></iframe>`:''}
+/* ===== RESTABLECER CONTRASEÑA ===== */
+let rst=null;
+function forgot(email){rst=null;M(`<h2>Restablecer contraseña</h2><p>Escribe el correo de tu cuenta y te daremos un código para crear una nueva contraseña.</p>
+ <form data-f="rst1" novalidate><label>Correo electrónico<input name="email" type="email" autocomplete="email" value="${esc(email||'')}"></label><p class="er"></p>
+ <button type="button" class="btn o" data-a="acct">Volver</button> <button class="btn l">Enviar código</button></form>`)}
+function sendCode(email){const code=typeof ENVIAR_CODIGO_POR_CORREO=='function'?String(Math.floor(100000+Math.random()*900000)):String(CODIGO_RESTABLECER);rst={email,code,t:Date.now(),tries:0};
+ if(typeof ENVIAR_CODIGO_POR_CORREO=='function')ENVIAR_CODIGO_POR_CORREO(email,code);
+ M(`<h2>Nueva contraseña</h2><p>Código para <b>${esc(email)}</b>. Vence en 10 minutos.</p>
+ <p class="note">Escribe el código de verificación para continuar.</p>
+ <form data-f="rst2" novalidate><label>Código de verificación<input name="code" inputmode="numeric" maxlength="${code.length}" autocomplete="one-time-code"></label>
+ <label>Nueva contraseña (mínimo 6)<input name="pw" type="password" autocomplete="new-password"></label><label>Repite la contraseña<input name="pw2" type="password" autocomplete="new-password"></label><p class="er"></p>
+ <button type="button" class="btn o" data-a="resend">Pedir otro código</button> <button class="btn l">Cambiar contraseña</button></form>`)}
+/* ===== CUENTA ===== */
+function acct(pre){const u=curUser,users=LS.g('cc2_users',[]);
+ const list=users.length?`<p><b>Usuarios guardados</b></p><div class="us">${users.map(x=>`<span class="uc"><button type="button" class="chip ${u&&u.email==x.email?'on':''}" data-a="pick" data-v="${esc(x.email)}">${esc(x.name)}${u&&u.email==x.email?' (activo)':''}</button><button type="button" class="lk" data-a="deluser" data-v="${esc(x.email)}" aria-label="Quitar a ${esc(x.name)}">Quitar</button></span>`).join('')}</div>`:'';
+ if(u&&!pre)return M(`<h2>Hola, ${esc(u.name)}</h2><p>${esc(u.email)}</p><p class="note">Este carrito es solo de tu cuenta. Al cambiar de usuario se carga el carrito guardado de esa persona.</p>${list}<p><button class="btn l" data-a="logout">Cerrar sesión</button></p>`);
+ const reg=amode=='reg'&&!pre;
+ M(`<h2>${reg?'Crear cuenta':'Iniciar sesión'}</h2>${pendingCk?'<p class="note">Inicia sesión o crea tu cuenta para finalizar tu compra. Tu carrito se conserva.</p>':''}${list}
+ <form data-f="acct" novalidate>${reg?'<label>Nombre<input name="name" autocomplete="name"></label>':''}<label>Correo electrónico<input name="email" type="email" autocomplete="email" value="${esc(pre||'')}"></label>
+ <label>Contraseña (mínimo 6)<input name="pw" type="password" autocomplete="off"></label>${reg?'':'<p style="margin:0 0 6px"><button type="button" class="lk" data-a="forgot">¿Olvidaste tu contraseña?</button></p>'}<p class="er"></p>
+ <button class="btn l">${reg?'Crear cuenta':'Entrar'}</button> <button type="button" class="lk" data-a="amode">${reg?'Ya tengo cuenta':'Crear una cuenta'}</button></form>`)}
+function setUser(){const u=curUser;$('#un').textContent=u?u.name.split(' ')[0]:'Cuenta'}
+
+/* ===== CHECKOUT (3 pasos) ===== */
+const FL=[['nombre','Nombre completo'],['correo','Correo electrónico'],['telefono','Teléfono (10 dígitos)'],['calle','Calle'],['numero','Número'],['colonia','Colonia'],['cp','Código postal (5 dígitos)'],['municipio','Alcaldía o municipio'],['estado','Estado']];
+function ck(){
+ if(!Object.keys(cart).length)return T('Tu carrito está vacío',1);
+ closeD();co.on=true;const s=co.step;
+ const hd=`<h2>Pagar</h2><div class="steps"><span class="${s==1?'on':''}">1 Revisar</span><span class="${s==2?'on':''}">2 Envío</span><span class="${s==3?'on':''}">3 Confirmar</span></div>`;
+ if(s==1)return M(hd+Object.keys(cart).map(i=>lineH(i,1)).join('')+totH()+'<button class="btn l" data-a="cks" data-v="2">Continuar</button>');
+ if(s==2)return M(hd+`<form data-f="ck2" novalidate><div class="f2">${FL.map(([k,l])=>`<label>${l}<input name="${k}" value="${esc(co.d[k]||'')}"></label>`).join('')}</div><p class="er"></p>
+ <button type="button" class="btn o" data-a="cks" data-v="1">Atrás</button> <button class="btn l">Continuar</button></form>`);
+ const d=co.d;
+ M(hd+`<h3>Método de pago</h3><div class="pay">${[['credit',' Tarjeta de crédito'],['debit',' Tarjeta de débito'],['paypal',' PayPal']].map(([v,l])=>`<label><input type="radio" name="pay" value="${v}" data-a="setpay" data-v="${v}" ${co.pay==v?'checked':''}>${l}</label>`).join('')}</div>
+ 
+ <h3>Resumen</h3>${Object.keys(cart).map(i=>lineH(i,0)).join('')}<p><b>Envío a:</b> ${esc(d.nombre)}, ${esc(d.calle)} ${esc(d.numero)}, ${esc(d.colonia)}, CP ${esc(d.cp)}, ${esc(d.municipio)}, ${esc(d.estado)}</p>${totH()}
+ <button class="btn o" data-a="cks" data-v="2">Atrás</button> <button class="btn l" data-a="place">Confirmar pedido</button>`)}
+function place(){
+ sync();
+ if(!curUser)return T('Inicia sesión para completar tu compra',1);
+ for(const i in cart)if(cart[i]>avail(i))return T(avail(i)?'Solo quedan '+avail(i)+' piezas de '+find(i).n:find(i).n+' ya no está disponible',1);
+ const t=totals(),o={id:'CC-'+String(Date.now()).slice(-8),items:Object.entries(cart).map(([i,q])=>({n:find(i).n,p:find(i).p,q})),d:co.d,pay:co.pay,...t,date:new Date().toLocaleString('es-MX')};
+ for(const i in cart)stock[i]-=cart[i];
+ cart={};sv();LS.s('cc3_stock',stock);R();co={on:false,step:1,d:co.d,pay:co.pay};T(' Pedido '+o.id+' confirmado');done(o)}
+const PN={credit:'Tarjeta de crédito',debit:'Tarjeta de débito',paypal:'PayPal'};
+function sumH(o){return `<p><b>Pedido:</b> ${o.id} · ${o.date}</p>${o.items.map(x=>`<div class="tt"><span>${x.q} × ${esc(x.n)}</span><span>${money(x.p*x.q)}</span></div>`).join('')}
+<p><b>Dirección:</b> ${esc(o.d.nombre)}, ${esc(o.d.calle)} ${esc(o.d.numero)}, ${esc(o.d.colonia)}, CP ${esc(o.d.cp)}, ${esc(o.d.municipio)}, ${esc(o.d.estado)}</p><p><b>Pago:</b> ${PN[o.pay]}</p>
+<div class="tt"><span>Subtotal</span><span>${money(o.sub)}</span></div><div class="tt"><span>Envío</span><span>${o.sh?money(o.sh):'Gratis'}</span></div><div class="tt g"><span>Total</span><span>${money(o.t)}</span></div>`}
+function done(o){M(`<h2> ¡Pedido confirmado!</h2>${sumH(o)}<button class="btn o" data-a="close">Seguir comprando</button>`)}
+
+/* ===== ACCIONES (clics) ===== */
+const A={
+ fav:(v,t)=>{fav(v);if(t.dataset.m)det(v)},add:(v,t)=>{const inp=t.closest('.card,.md')&&t.closest('.card,.md').querySelector('input[data-q="'+v+'"]');const ok=add(v,inp?inp.value:1);if(inp&&!ok)inp.classList.add('inv');if(ok&&$('#ov').classList.contains('on')&&!co.on)det(v)},det:v=>det(v),
+ cat:v=>{filt.cat=v;R();A.go('catalogo')},go:v=>{closeM();closeD();const el=document.getElementById(v);if(!el)return;const y=Math.max(0,el.getBoundingClientRect().top+window.pageYOffset-80);try{window.scrollTo({top:y,behavior:'smooth'})}catch(e){window.scrollTo(0,y)}setTimeout(()=>{if(Math.abs(window.pageYOffset-y)>200){(document.scrollingElement||document.documentElement).scrollTop=y}},700)},
+ closeGo:()=>A.go('catalogo'),drawer:v=>drawer(v),acct,close:closeM,closeD,qty,rm,ck:()=>{if(!curUser){pendingCk=true;amode='login';closeD();acct();return}co.step=1;ck()},
+ cks:(v)=>{const f=$('#md form[data-f=ck2]');if(f)co.d=fd(f);co.step=Number(v);ck()},setpay:v=>{co.pay=v},place,
+ amode:()=>{amode=amode=='login'?'reg':'login';acct()},
+ logout:()=>{switchUser(null);closeM();T('Sesión cerrada')},
+ pick:v=>{amode='login';acct(v)},
+ deluser:v=>{sync();const was=curUser&&curUser.email==v;LS.s('cc2_users',LS.g('cc2_users',[]).filter(x=>x.email!=v));delete carts[v];LS.s('cc3_carts',carts);if(was){cart={};switchUser(null)}T('Usuario quitado');acct()},
+ ret:()=>M(`<h2>Solicitar devolución</h2><form data-f="ret" novalidate><label>Número de pedido<input name="o" placeholder="CC-12345678"></label>
+ <label>Producto<select name="p">${P.map(p=>`<option>${p.n}</option>`).join('')}</select></label><label>Motivo<select name="m"><option>Llegó dañado</option><option>No es lo que esperaba</option><option>Producto equivocado</option></select></label>
+ <label>Detalles<textarea name="d" rows="3"></textarea></label><p class="er"></p><button type="button" class="btn o" data-a="close">Cancelar</button> <button class="btn l">Enviar solicitud</button></form>`),
+ vid:v=>{const[r,e,t]=v.split('|'),k=r.toLowerCase(),u=(VIDEOS[k]||'').trim();
+ if(u){const h=embed(k,u);return M(`<h2>${r}: ${t}</h2>${h||'<p class="er">No se reconoció el enlace de '+r+'. Pega el enlace completo de una publicación o video público.</p>'}`)}
+ M(`<h2>${r}: ${t}</h2><div class="vid" id="vd"><em><svg width="64" height="64" viewBox="0 0 24 24" fill="#b6f03c" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></em><i></i></div><button class="btn l" data-a="pp">Reproducir / pausar</button>`)},
+ forgot:()=>forgot(($('#md input[name=email]')||{}).value||''),
+ resend:()=>{if(rst)sendCode(rst.email);else forgot('')},
+ pp:()=>$('#vd').classList.toggle('p')
+};
+document.addEventListener('click',e=>{if(e.target.id=='ov')return closeM();const t=e.target.closest('[data-a]');if(t&&A[t.dataset.a])A[t.dataset.a](t.dataset.v,t)});
+
+/* ===== FORMULARIOS (con validación) ===== */
+const em=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v||'');
+const F={
+ acct(f){const d=fd(f),er=m=>{f.querySelector('.er').textContent=m},users=LS.g('cc2_users',[]);
+  if(amode=='reg'&&(d.name||'').trim().length<2)return er('Escribe tu nombre (mínimo 2 letras).');
+  if(!em(d.email))return er('Escribe un correo válido, por ejemplo nombre@correo.com.');
+  if((d.pw||'').length<6)return er('La contraseña debe tener al menos 6 caracteres.');
+  const k=d.email.toLowerCase();
+  if(amode=='reg'){if(users.some(u=>u.email==k))return er('Ese correo ya está registrado. Inicia sesión.');users.push({name:d.name.trim(),email:k,pw:btoa(d.pw)});LS.s('cc2_users',users);switchUser({name:d.name.trim(),email:k},pendingCk);}
+  else{const u=users.find(u=>u.email==k&&u.pw==btoa(d.pw));if(!u)return er('Correo o contraseña incorrectos.');switchUser({name:u.name,email:k},pendingCk);}
+  const go=pendingCk;closeM();T('Sesión iniciada');if(go){co.step=1;ck()}},
+ ck2(f){const d=fd(f),er=m=>{f.querySelector('.er').textContent=m};co.d=d;
+  for(const[k,l]of FL)if(!(d[k]||'').trim())return er('Falta completar: '+l+'.');
+  if(!em(d.correo))return er('El correo no es válido.');
+  if(!/^\d{10}$/.test(d.telefono))return er('El teléfono debe tener 10 dígitos.');
+  if(!/^\d{5}$/.test(d.cp))return er('El código postal debe tener 5 dígitos.');
+  co.step=3;ck()},
+ rev(f){const d=fd(f),er=m=>{f.querySelector('.er').textContent=m};
+  if((d.n||'').trim().length<2)return er('Escribe tu nombre.');if((d.t||'').trim().length<5)return er('El comentario debe tener al menos 5 caracteres.');
+  revs[d.id]=[...revOf(d.id),{n:d.n.trim(),r:Number(d.r),t:d.t.trim()}];LS.s('cc2_rev',revs);T(' Reseña publicada');det(d.id)},
+ rst1(f){const d=fd(f),er=m=>{f.querySelector('.er').textContent=m},email=(d.email||'').trim().toLowerCase();
+  if(!em(email))return er('Escribe un correo válido, por ejemplo nombre@correo.com.');
+  if(!LS.g('cc2_users',[]).some(u=>u.email==email))return er('No encontramos una cuenta con ese correo.');
+  sendCode(email)},
+ rst2(f){const d=fd(f),er=m=>{f.querySelector('.er').textContent=m};
+  if(!rst)return er('Solicita un código nuevo.');
+  if(Date.now()-rst.t>600000){rst=null;return er('El código venció. Solicita uno nuevo.')}
+  if(++rst.tries>5){rst=null;return er('Demasiados intentos. Solicita un código nuevo.')}
+  if((d.code||'').trim()!==rst.code)return er('El código no es correcto.');
+  if((d.pw||'').length<6)return er('La contraseña debe tener al menos 6 caracteres.');
+  if(d.pw!==d.pw2)return er('Las contraseñas no coinciden.');
+  const us=LS.g('cc2_users',[]),u=us.find(x=>x.email==rst.email);if(!u)return er('La cuenta ya no existe.');
+  u.pw=btoa(d.pw);LS.s('cc2_users',us);const email=rst.email;rst=null;T('Contraseña actualizada');amode='login';acct(email)},
+ ret(f){const d=fd(f),er=m=>{f.querySelector('.er').textContent=m};
+  if(!/^CC-\d{8}$/i.test((d.o||'').trim()))return er('El número de pedido tiene el formato CC-12345678.');if((d.d||'').trim().length<10)return er('Cuéntanos más detalles (mínimo 10 caracteres).');
+  closeM();T('Solicitud de devolución enviada')}
+};
+/* Los formularios se procesan con clic/Enter propios (no con el envío nativo), así funcionan también en vistas previas con formularios bloqueados */
+function runForm(f){if(f&&F[f.dataset.f]){try{F[f.dataset.f](f)}catch(x){T('Ocurrió un error, intenta de nuevo',1)}}}
+document.addEventListener('submit',e=>{e.preventDefault();runForm(e.target)});
+document.addEventListener('click',e=>{const b=e.target.closest('form[data-f] button');if(b&&b.type!='button'){e.preventDefault();runForm(b.form)}});
+document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.matches('form[data-f] input')){e.preventDefault();runForm(e.target.form)}});
+
+/* ===== CANTIDADES ESCRITAS ===== */
+document.addEventListener('change',e=>{if(e.target.dataset.cq)setQty(e.target.dataset.cq,e.target.value)});
+document.addEventListener('input',e=>{if(e.target.dataset.q)e.target.classList.remove('inv')});
+document.addEventListener('keydown',e=>{if(e.key!='Enter')return;const t=e.target;
+ if(t.dataset.cq){t.blur()}
+ else if(t.dataset.q){e.preventDefault();const b=t.closest('.card,.md').querySelector('[data-a=add]');if(b)b.click()}});
+/* Otra pestaña cambió carritos o existencias: se actualiza lo que se ve */
+addEventListener('storage',e=>{if(e.key&&e.key.startsWith('cc3_')){sync();R();if(co.on&&co.step==1)ck()}});
+/* ===== BUSCADOR, ORDEN, TECLADO ===== */
+$('#q').addEventListener('input',e=>{filt.q=e.target.value;catalog()});
+$('#q').addEventListener('keydown',e=>{if(e.key=='Enter')A.go('catalogo')});
+$('#sort').addEventListener('change',e=>{filt.sort=e.target.value;catalog()});
+document.addEventListener('keydown',e=>{if(e.key=='Escape'){closeM();closeD()}});
+
+/* ===== INICIO ===== */
+/* Redes del pie de página: si hay enlace en PERFILES se abre ese perfil; si no, lleva a la sección de redes */
+$('#fsoc').innerHTML=[['instagram','Instagram'],['facebook','Facebook'],['','']].map(([k,n])=>/^https?:\/\//i.test(PERFILES[k]||'')?`<a href="${esc(PERFILES[k])}" target="_blank" rel="noopener noreferrer">${n}</a>`:`<button data-a="go" data-v="redes">${n}</button>`).join('');
+$('#nav').innerHTML=CATS.map(c=>`<button data-a="cat" data-v="${c}">${c}</button>`).join('')+'<button data-a="go" data-v="envios">Envíos</button><button data-a="go" data-v="faq">Ayuda</button>';
+$('#catcards').innerHTML=CATS.map(c=>`<button class="cc" data-a="cat" data-v="${c}"><small>${c}</small></button>`).join('');
+setUser();R();
+</script>
+</body>
+</html>
